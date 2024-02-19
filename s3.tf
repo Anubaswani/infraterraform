@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "myprojectbucket6" {
+resource "aws_s3_bucket" "terraformbucket68" {
   bucket_prefix = var.bucket_prefix
   acl = var.acl
   
