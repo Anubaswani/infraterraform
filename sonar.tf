@@ -1,16 +1,16 @@
-resource "aws_instance" "Project" {
+resource "aws_instance" "MySonar" {
       ami           = "var.ami"
       key_name = var.key_name
       instance_type = "t2.micro"
       vpc_security_group_ids = [aws_security_group.sonar-sg-2022.id]
       tags= {
-        Name = "Project_instance"
+        Name = "Sonar_instance"
       }
     }
 
- resource "aws_security_group" "Project-sg-2022" {
-      name        = "security_Project_group_2022"
-      description = "security group for Project"
+ resource "aws_security_group" "Sonar-sg-2022" {
+      name        = "security_Sonar_group_2022"
+      description = "security group for Sonar"
 
       ingress {
         from_port   = 9000
