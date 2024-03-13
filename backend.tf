@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "terraformbucket68"
+    bucket = "terraformjenkins6"
     key = "main.tf"
     region = "US East (Ohio) us-east-2"
   
