@@ -2,7 +2,7 @@ resource "aws_instance" "Project" {
       ami           = "var.ami"
       key_name = var.key_name
       instance_type = "t2.micro"
-      vpc_security_group_ids = [sg-0fb6eea9297c32b3e]
+      vpc_security_group_ids = [aws_security_group.sonar-sg-2022.id]
       tags= {
         Name = "Project_instance"
       }
@@ -26,7 +26,7 @@ resource "aws_instance" "Project" {
         cidr_blocks = ["0.0.0.0/0"]
       }
 
-     # outbound from Project server
+     # outbound from Sonar server
       egress {
         from_port   = 0
         to_port     = 65535
@@ -35,15 +35,15 @@ resource "aws_instance" "Project" {
       }
 
       tags= {
-        Name = "security_Project"
+        Name = "security_Sonar"
       }
     }
 
-# Create Elastic IP address for Project instance
-resource "aws_eip" "myProjectInstance" {
+# Create Elastic IP address for Sonar instance
+resource "aws_eip" "mySonarInstance" {
   vpc      = true
-  instance = aws_instance.myProjectInstance.id
+  instance = aws_instance.mySonarInstance.id
 tags= {
-    Name = "Project_elastic_ip"
+    Name = "Sonar_elastic_ip"
   }
 }
